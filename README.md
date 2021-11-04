@@ -21,3 +21,6 @@ Once you have the the module installed you can run the command below to launch t
 ```Powershell
 Show-tsTeamSeas
 ```
+After running that command a GUI similar to one below should appear.
+
+![Example TeamSeas GUI](https://github.com/MrPig91/PSTeamSeas/blob/main/TeamSeasGUI.png)
