@@ -8,7 +8,7 @@ function Update-tsDonationData {
 
     $TotalDonations = Get-tsTotalDonations
     $Recent = (Get-tsDonationInfo).Recent
-    $TotalDonations.TotalDonations = $TotalDonations.TotalDonations - ($Recent | Measure-Object -Property pounds).Sum
+    $TotalDonations.TotalDonations = $TotalDonations.TotalDonations - ($Recent | Measure-Object -Property pounds -Sum).Sum
     $ViewModel.TotalDonations.TotalDonations = $TotalDonations.TotalDonations
 
     foreach ($donation in $Recent){
