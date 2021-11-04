@@ -24,3 +24,8 @@ Show-tsTeamSeas
 After running that command a GUI similar to one below should appear.
 
 ![Example TeamSeas GUI](https://github.com/MrPig91/PSTeamSeas/blob/main/TeamSeasGUI.png)
+
+# How This App Was Built
+Want to know how I built this app step by step? I made video of the process linked below!
+
+[![TeamSeas App How To Video](https://img.youtube.com/vi/bDyQww7D4sI/0.jpg)](https://www.youtube.com/watch?v=bDyQww7D4sI)
