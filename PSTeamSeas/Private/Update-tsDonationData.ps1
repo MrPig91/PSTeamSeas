@@ -17,7 +17,7 @@ function Update-tsDonationData {
         if ($ViewModel.RecentDonations.Count -gt $ListLength){
             $ViewModel.RecentDonations.RemoveAt($ViewModel.RecentDonations.Count - 1)
         }
-        Start-Sleep -Seconds (Get-Random -Minimum 2 -Maximum 10)
+        Start-Sleep -Seconds (Get-Random -Minimum 5 -Maximum 60)
     }
     Update-tsDonationData @PSBoundParameters
 }
