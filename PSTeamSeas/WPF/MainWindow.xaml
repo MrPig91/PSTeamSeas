@@ -1,0 +1,62 @@
+<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PSTeamSeas"
+        Title="TeamSeas" Height="450" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" MaxHeight="150" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Progress" Grid.Column="1" Grid.Row="1" Margin="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
+                <TextBlock Text="{Binding Path=TotalDonations.TotalDonations, StringFormat={}{0:n0} Pounds Removed}" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" />
+                <Separator />
+                <Grid>
+                    <ProgressBar x:Name="ProgressBar" Value="{Binding Path=TotalDonations.PercentComplete}" Height="50" Margin="10" Background="Azure" Foreground="Aquamarine" />
+                    <TextBlock Text="{Binding ElementName=ProgressBar, Path=Value, StringFormat={}{0}%}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" />
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Recent Donations" Grid.Column="1" Grid.Row="2" Margin="5">
+            <ListBox x:Name="RecentDonationsLB" ItemsSource="{Binding Path=RecentDonations}" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DataTemplate.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataTemplate.Resources>
+                        <Border BorderBrush="DarkBlue" BorderThickness="1" CornerRadius="2" Margin="5,5,5,0">
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+                                    <TextBlock Text="{Binding Path=name}" Margin="0,0,10,0"/>
+                                    <Separator Width="5"/>
+                                    <TextBlock Text="{Binding Path=pounds, StringFormat=Donated ${0}}" Margin="10,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Grid.Row="1">
+                                    <Separator />
+                                    <TextBlock Text="{Binding Path=message_public}" TextWrapping="Wrap" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+    </Grid>
+</Window>
